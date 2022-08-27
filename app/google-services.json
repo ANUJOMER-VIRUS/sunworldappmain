@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "709536214812",
+    "project_id": "sunworld-app",
+    "storage_bucket": "sunworld-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709536214812:android:1710259a54baf9f55754d9",
+        "android_client_info": {
+          "package_name": "com.monstertechno.loginsignupui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709536214812-2ubgggtohegf50qrhjloke2us7pefnq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvVNIt9D1Wthwz8f4LyjAaswqLxnVIWLU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709536214812-2ubgggtohegf50qrhjloke2us7pefnq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
