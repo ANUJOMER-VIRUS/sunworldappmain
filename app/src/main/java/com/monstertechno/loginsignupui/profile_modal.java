@@ -2,6 +2,8 @@ package com.monstertechno.loginsignupui;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class profile_modal {
     @SerializedName("full_name")
     private String name;
@@ -21,6 +23,16 @@ public class profile_modal {
     private String responsemessage;
 @SerializedName("responseCode")
 private String responsecode;
+@SerializedName("responseData")
+user_idmodal user_idmodal;
+
+    public com.monstertechno.loginsignupui.user_idmodal getUser_idmodal() {
+        return user_idmodal;
+    }
+
+    public void setUser_idmodal(com.monstertechno.loginsignupui.user_idmodal user_idmodal) {
+        this.user_idmodal = user_idmodal;
+    }
 
     public String getResponsecode() {
         return responsecode;

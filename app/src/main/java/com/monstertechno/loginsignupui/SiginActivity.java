@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,10 +18,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SiginActivity extends AppCompatActivity {
 
@@ -28,7 +33,7 @@ public class SiginActivity extends AppCompatActivity {
     EditText mobile;
     private FirebaseAuth mAuth;
     private String verifcationId;
-
+    String userid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +42,6 @@ public class SiginActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(Color.TRANSPARENT);
 
         setContentView(R.layout.activity_sigin);
-
 
         mAuth=FirebaseAuth.getInstance();
         mobile=findViewById(R.id.mobilenumber);
@@ -56,6 +60,8 @@ public class SiginActivity extends AppCompatActivity {
              }
              else{
                  String phone="+91"+mobile.getText().toString();
+                 id(mobile.getText().toString());
+                 Toast.makeText(getApplicationContext(),userid,Toast.LENGTH_SHORT);
                  PhoneAuthProvider.getInstance().verifyPhoneNumber(
                          phone,
                          60,
@@ -71,7 +77,7 @@ public class SiginActivity extends AppCompatActivity {
                              @Override
                              public void onVerificationFailed(@NonNull FirebaseException e) {
                                  Toast.makeText(SiginActivity.this,"verification of mobile failed",Toast.LENGTH_SHORT).show();
-                                 jumptohome();
+
                              }
 
                              @Override
@@ -96,15 +102,47 @@ public class SiginActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),SignupActivity.class));
+
+
+
+
+
+               startActivity(new Intent(getApplicationContext(),SignupActivity.class));
             }
         });
     }
 
 
 
-public void jumptohome(){
-    startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+
+        private void id(String phone){
+
+    ResponseDataModal responseDataModal=new ResponseDataModal(phone);
+    RetrofitAPI retrofitAPI=RetrofitClient.getRetrofit().create(RetrofitAPI.class);
+    Call<ResponseDataModal>call =retrofitAPI.getid(responseDataModal);
+    call.enqueue(new Callback<ResponseDataModal>() {
+        @Override
+        public void onResponse(Call<ResponseDataModal> call, Response<ResponseDataModal> response) {
+            if(response.isSuccessful()){
+           String ui=(String) response.body().getUser_idmodal().getUser_id();
+             userid=ui;
+            }
+        }
+
+        @Override
+        public void onFailure(Call<ResponseDataModal> call, Throwable t) {
+
+        }
+    });
+
+
+
+
+
+
+
+
 }
+
 
 }

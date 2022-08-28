@@ -115,7 +115,8 @@ call.enqueue(new Callback<com.monstertechno.loginsignupui.profile_modal>() {
     @Override
     public void onResponse(Call<com.monstertechno.loginsignupui.profile_modal> call, Response<com.monstertechno.loginsignupui.profile_modal> response) {
         if(response.body().getStatus()){
-            Toast.makeText(getApplicationContext(),response.body().getResponsemessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),response.body().getUser_idmodal().getUser_id(),Toast.LENGTH_SHORT).show();
+
         }
         else {
             Toast.makeText(getApplicationContext(),response.body().getResponsemessage(),Toast.LENGTH_SHORT).show();
