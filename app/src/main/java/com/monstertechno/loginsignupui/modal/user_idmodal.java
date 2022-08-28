@@ -1,4 +1,4 @@
-package com.monstertechno.loginsignupui;
+package com.monstertechno.loginsignupui.modal;
 
 import com.google.gson.annotations.SerializedName;
 

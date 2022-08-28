@@ -1,4 +1,4 @@
-package com.monstertechno.loginsignupui;
+package com.monstertechno.loginsignupui.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,19 +17,16 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.google.gson.Gson;
+import com.monstertechno.loginsignupui.R;
+import com.monstertechno.loginsignupui.Retrofit.RetrofitAPI;
+import com.monstertechno.loginsignupui.Retrofit.RetrofitClient;
+import com.monstertechno.loginsignupui.modal.profile_modal;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignupActivity extends AppCompatActivity {
 EditText name,email,mobilenumber,Address,city,Occupation;
@@ -98,7 +94,7 @@ EditText name,email,mobilenumber,Address,city,Occupation;
 
                     @Override
                     public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                        Intent intent = new Intent(SignupActivity.this,OTPActivity.class);
+                        Intent intent = new Intent(SignupActivity.this, OTPActivity.class);
                         intent.putExtra("mobile",  phone);
                         intent.putExtra("verificationOtp",s);
 
@@ -109,11 +105,11 @@ EditText name,email,mobilenumber,Address,city,Occupation;
     }
 
     private void sendDatatoDb(profile_modal profile_modal) {
-RetrofitAPI retrofitAPI=RetrofitClient.getRetrofit().create(RetrofitAPI.class);
+RetrofitAPI retrofitAPI= RetrofitClient.getRetrofit().create(RetrofitAPI.class);
 Call<profile_modal> call=retrofitAPI.createPost(profile_modal);
-call.enqueue(new Callback<com.monstertechno.loginsignupui.profile_modal>() {
+call.enqueue(new Callback<com.monstertechno.loginsignupui.modal.profile_modal>() {
     @Override
-    public void onResponse(Call<com.monstertechno.loginsignupui.profile_modal> call, Response<com.monstertechno.loginsignupui.profile_modal> response) {
+    public void onResponse(Call<com.monstertechno.loginsignupui.modal.profile_modal> call, Response<com.monstertechno.loginsignupui.modal.profile_modal> response) {
         if(response.body().getStatus()){
             Toast.makeText(getApplicationContext(),response.body().getUser_idmodal().getUser_id(),Toast.LENGTH_SHORT).show();
 
@@ -125,7 +121,7 @@ call.enqueue(new Callback<com.monstertechno.loginsignupui.profile_modal>() {
     }
 
     @Override
-    public void onFailure(Call<com.monstertechno.loginsignupui.profile_modal> call, Throwable t) {
+    public void onFailure(Call<com.monstertechno.loginsignupui.modal.profile_modal> call, Throwable t) {
         Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
 
     }

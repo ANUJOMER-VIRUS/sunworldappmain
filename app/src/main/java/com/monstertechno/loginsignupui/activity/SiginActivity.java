@@ -1,10 +1,9 @@
-package com.monstertechno.loginsignupui;
+package com.monstertechno.loginsignupui.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,8 +18,11 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.monstertechno.loginsignupui.R;
+import com.monstertechno.loginsignupui.Retrofit.RetrofitAPI;
+import com.monstertechno.loginsignupui.Retrofit.RetrofitClient;
+import com.monstertechno.loginsignupui.modal.ResponseDataModal;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
@@ -83,7 +85,7 @@ public class SiginActivity extends AppCompatActivity {
                              @Override
                              public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
 
-                                 Intent intent=new Intent(SiginActivity.this,OTPActivity.class);
+                                 Intent intent=new Intent(SiginActivity.this, OTPActivity.class);
                                  intent.putExtra("mobile",phone);
                                  intent.putExtra("verificationOtp",s);
                                  startActivity(intent);
@@ -107,7 +109,7 @@ public class SiginActivity extends AppCompatActivity {
 
 
 
-               startActivity(new Intent(getApplicationContext(),SignupActivity.class));
+               startActivity(new Intent(getApplicationContext(), SignupActivity.class));
             }
         });
     }
@@ -118,7 +120,7 @@ public class SiginActivity extends AppCompatActivity {
         private void id(String phone){
 
     ResponseDataModal responseDataModal=new ResponseDataModal(phone);
-    RetrofitAPI retrofitAPI=RetrofitClient.getRetrofit().create(RetrofitAPI.class);
+    RetrofitAPI retrofitAPI= RetrofitClient.getRetrofit().create(RetrofitAPI.class);
     Call<ResponseDataModal>call =retrofitAPI.getid(responseDataModal);
     call.enqueue(new Callback<ResponseDataModal>() {
         @Override

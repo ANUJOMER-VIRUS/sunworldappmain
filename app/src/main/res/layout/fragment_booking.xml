@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhiteSmoke"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".BookingFragment">
+    tools:context=".fragment.BookingFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -11,19 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".UserProfileActivity"
+            android:name=".activity.UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".OTPActivity"
+            android:name=".activity.OTPActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SiginActivity"
+            android:name=".activity.SiginActivity"
             android:exported="false" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".MainActivity"
+        <activity android:name=".activity.SignupActivity" />
+        <activity android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,12 +1,11 @@
-package com.monstertechno.loginsignupui;
+package com.monstertechno.loginsignupui.Retrofit;
 
-import java.util.List;
+import com.monstertechno.loginsignupui.modal.ResponseDataModal;
+import com.monstertechno.loginsignupui.modal.profile_modal;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 public interface RetrofitAPI {
     @POST("user_register")

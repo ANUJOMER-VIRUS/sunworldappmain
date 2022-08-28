@@ -7,7 +7,7 @@
     android:scrollbars="none"
     android:background="@color/colorWhiteSmoke"
     android:layout_height="match_parent"
-    tools:context=".OTPActivity">
+    tools:context=".activity.OTPActivity">
 
 
     <LinearLayout

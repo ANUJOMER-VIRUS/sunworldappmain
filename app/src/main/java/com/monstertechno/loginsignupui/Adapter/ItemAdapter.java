@@ -1,4 +1,4 @@
-package com.monstertechno.loginsignupui;
+package com.monstertechno.loginsignupui.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.monstertechno.loginsignupui.R;
+import com.monstertechno.loginsignupui.modal.Model;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.monstertechno.loginsignupui;
+package com.monstertechno.loginsignupui.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,13 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.chaos.view.PinView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.monstertechno.loginsignupui.R;
 
 public class  OTPActivity extends AppCompatActivity {
 
@@ -59,7 +59,7 @@ private String  verifyOtp;
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Intent intent1=new Intent(getApplicationContext(),HomeActivity.class);
+                                    Intent intent1=new Intent(getApplicationContext(), HomeActivity.class);
                                     intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent1);
                                 }

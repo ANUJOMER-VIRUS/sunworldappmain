@@ -1,8 +1,10 @@
-package com.monstertechno.loginsignupui;
+package com.monstertechno.loginsignupui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.monstertechno.loginsignupui.R;
 
 public class UserProfileActivity extends AppCompatActivity {
 

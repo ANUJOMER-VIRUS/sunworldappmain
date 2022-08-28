@@ -1,4 +1,4 @@
-package com.monstertechno.loginsignupui;
+package com.monstertechno.loginsignupui.Adapter;
 
 import android.os.Bundle;
 
@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.monstertechno.loginsignupui.fragment.HomeFragment;
 
 public class ImageFragmentAdapter extends FragmentStatePagerAdapter {
 

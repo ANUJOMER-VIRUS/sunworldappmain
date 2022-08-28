@@ -1,7 +1,6 @@
-package com.monstertechno.loginsignupui;
+package com.monstertechno.loginsignupui.modal;
 
 import com.google.gson.annotations.SerializedName;
-import com.monstertechno.loginsignupui.user_idmodal;
 
 public class ResponseDataModal {
   @SerializedName("mobile_number")
@@ -19,7 +18,7 @@ public class ResponseDataModal {
     return mobilenumber;
   }
 
-  public com.monstertechno.loginsignupui.user_idmodal getUser_idmodal() {
+  public com.monstertechno.loginsignupui.modal.user_idmodal getUser_idmodal() {
     return user_idmodal;
   }
 

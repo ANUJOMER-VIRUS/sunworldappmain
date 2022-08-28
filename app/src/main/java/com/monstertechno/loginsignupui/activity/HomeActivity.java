@@ -1,4 +1,4 @@
-package com.monstertechno.loginsignupui;
+package com.monstertechno.loginsignupui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -8,6 +8,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.monstertechno.loginsignupui.Adapter.ImageFragmentAdapter;
+import com.monstertechno.loginsignupui.fragment.BookingFragment;
+import com.monstertechno.loginsignupui.fragment.HomeFragment;
+import com.monstertechno.loginsignupui.fragment.NewBookingFragment;
+import com.monstertechno.loginsignupui.fragment.ProfileFragment;
+import com.monstertechno.loginsignupui.R;
+import com.monstertechno.loginsignupui.fragment.RedeemFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
