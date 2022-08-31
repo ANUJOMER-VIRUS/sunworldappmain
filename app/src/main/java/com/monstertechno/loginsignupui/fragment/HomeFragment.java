@@ -9,16 +9,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.monstertechno.loginsignupui.Adapter.ItemAdapter;
 import com.monstertechno.loginsignupui.R;
+import com.monstertechno.loginsignupui.Retrofit.RetrofitAPI;
+import com.monstertechno.loginsignupui.Retrofit.RetrofitClient;
 import com.monstertechno.loginsignupui.modal.Model;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+
+public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     List<Model> itemList;
 
@@ -52,7 +61,7 @@ public class HomeFragment extends Fragment {
         itemList.add(new Model(R.drawable.logosunworld,"Sunworld Tank","Good","2","Toady"));
         itemList.add(new Model(R.drawable.logosunworld,"Sunworld Tank","Good","3","Toady"));
         itemList.add(new Model(R.drawable.logosunworld,"Sunworld Tank","Good","3","Toady"));
-        itemList.add(new Model(R.drawable.logosunworld,"Sunworld Tank","Good","4","Ty"));
+        itemList.add(new Model(R.drawable.logosunworld,"Sunworld Tank","Good","4","Toady"));
         itemList.add(new Model(R.drawable.logosunworld,"Sunworld Tank","Good","5","Toady"));
 
 

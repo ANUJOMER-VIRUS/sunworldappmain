@@ -1,5 +1,6 @@
 package com.monstertechno.loginsignupui.Adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.monstertechno.loginsignupui.R;
 import com.monstertechno.loginsignupui.modal.Model;
+import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
@@ -37,9 +41,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
         viewHolder.itemImage.setImageResource(itemList1.get(i).getImage());
         viewHolder.itemtext.setText(itemList1.get(i).getName());
-        viewHolder.itemtext1.setText(itemList1.get(i).getQuality());
-        viewHolder.itemtext2.setText(itemList1.get(i).getNumber());
-        viewHolder.itemtext3.setText(itemList1.get(i).getDelivery());
 
     }
 

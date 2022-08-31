@@ -3,11 +3,6 @@ package com.monstertechno.loginsignupui.modal;
 public class HomeData {
     private int image;
     private String name;
-    private String product;
-    private String quantity;
-
-    public HomeData(int img20, String family) {
-    }
 
     public int getImage() {
         return image;
@@ -25,28 +20,8 @@ public class HomeData {
         this.name = name;
     }
 
-    public String getproduct() {
-        return product;
-    }
-
-    public void setproduct(String product) {
-        this.product = product;
-    }
-
-
-    public String getquantity() {
-        return quantity;
-    }
-
-    public void setquantity(String quantity) {
-        this.quantity = quantity;
-    }
-
-
-    public HomeData(int image, String name ,String product, String quantity) {
+    public HomeData(int image, String name) {
         this.image = image;
         this.name = name;
-        this.product = product;
-        this.quantity = quantity;
     }
 }

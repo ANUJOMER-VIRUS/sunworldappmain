@@ -7,7 +7,7 @@
     android:scrollbars="none"
     android:background="@color/colorWhiteSmoke"
     android:layout_height="match_parent"
-    tools:context=".activity.OTPActivity">
+    tools:context=".OTPActivity">
 
 
     <LinearLayout
@@ -50,10 +50,10 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:id="@+id/otpnumber"
             android:layout_height="wrap_content"
             android:text="@string/otp_description_text"
             android:textSize="16dp"
+            android:id="@+id/otpnumber"
             android:layout_marginTop="50dp"
             android:textColor="@color/black"
             android:fontFamily="@font/mulishblack"
@@ -64,15 +64,11 @@
 
 
         <com.chaos.view.PinView
-
-            android:id="@+id/pinview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
             app:itemCount="6"
-            android:textAlignment="center"
+            android:id="@+id/pinview"
             app:itemHeight="50dp"
-            android:hint="123456"
             app:itemWidth="50dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
@@ -84,16 +80,8 @@
             app:cursorColor="@color/black"
             app:hideLineWhenFilled="true"
             app:itemRadius="10dp"/>
-        <!--
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/pinview"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Otp"
-            android:inputType="number"
-            android:padding="9dp"
-            android:textColor="@color/black" />
-            -->
+
+
         <Button
             android:id="@+id/btnverify"
             android:layout_width="match_parent"

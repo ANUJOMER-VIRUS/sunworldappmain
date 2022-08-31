@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -21,14 +22,16 @@ public class HomeActivity extends AppCompatActivity {
     MeowBottomNavigation bottomNavigation;
     ViewPager viewPager;
     ImageFragmentAdapter adapter;
-
+SharedPreferences sharedPreferences;
+SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-
+        sharedPreferences =this.getSharedPreferences("login",MODE_PRIVATE);
+        editor=sharedPreferences.edit();
+Toast.makeText(getApplicationContext(), sharedPreferences.getString("userid","not_found"),Toast.LENGTH_SHORT).show();
         bottomNavigation = findViewById(R.id.bottom_navigation);
 
         bottomNavigation.add(new MeowBottomNavigation.Model(1,R.drawable.ic_baseline_home_24));

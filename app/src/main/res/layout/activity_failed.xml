@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.Failed">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/PaymentFailed">
+
+        <ImageView
+            android:id="@+id/Circle"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/ic_baseline_cancel_24"/>
+
+        <TextView
+            android:id="@+id/success"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Circle"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="center"
+            android:text="FAILED"
+            android:textSize="28dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Action performed Failed"
+            android:layout_below="@id/success"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:fontFamily="@font/poppinsregular"/>
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

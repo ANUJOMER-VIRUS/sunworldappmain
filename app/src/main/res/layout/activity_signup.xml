@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="8dp"
         android:text="Welcome\nBack"
         android:textColor="@android:color/white"
@@ -54,11 +54,11 @@
             android:layout_marginEnd="30dp"
             android:background="#B1B1B1" />
         <EditText
+            android:id="@+id/emailsup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-android:id="@+id/emailsup"
             android:backgroundTint="@android:color/transparent"
             android:hint="Email"
             android:inputType="textEmailAddress"
@@ -76,11 +76,10 @@ android:id="@+id/emailsup"
 
 
         <EditText
-            android:id="@+id/mobilesup"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:id="@+id/mobilesup"
             android:layout_marginEnd="30dp"
             android:backgroundTint="@android:color/transparent"
             android:hint="Mobile Number"
@@ -103,15 +102,15 @@ android:id="@+id/emailsup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:id="@+id/addresssup"
             android:layout_marginEnd="30dp"
             android:backgroundTint="@android:color/transparent"
-android:id="@+id/addresssup"
             android:hint="Address"
-            android:inputType="textPostalAddress"
+            android:inputType="text"
+
             android:padding="15dp"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -120,19 +119,21 @@ android:id="@+id/addresssup"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="30dp"
             android:background="#B1B1B1" />
+
+
         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:id="@+id/citysup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:backgroundTint="@android:color/transparent"
-            android:hint="city"
-            android:inputType="textPostalAddress"
+            android:hint="City"
+            android:inputType="text"
+
             android:padding="15dp"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -141,19 +142,20 @@ android:id="@+id/addresssup"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="30dp"
             android:background="#B1B1B1" />
+
         <EditText
-            android:id="@+id/occupationsup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:id="@+id/occupationsup"
             android:layout_marginEnd="30dp"
             android:backgroundTint="@android:color/transparent"
-            android:hint="occupation"
-            android:inputType="textPostalAddress"
+            android:hint="Occupation"
+            android:inputType="text"
+            android:maxLength="12"
             android:padding="15dp"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
-
 
         <RelativeLayout
             android:layout_width="match_parent"

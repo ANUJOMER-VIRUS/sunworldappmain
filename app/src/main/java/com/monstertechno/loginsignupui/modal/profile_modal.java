@@ -21,15 +21,19 @@ public class profile_modal {
     private String responsemessage;
 @SerializedName("responseCode")
 private String responsecode;
-@SerializedName("responseData")
-com.monstertechno.loginsignupui.modal.user_idmodal user_idmodal;
+@SerializedName("user_id")
+private String user_id;
 
-    public com.monstertechno.loginsignupui.modal.user_idmodal getUser_idmodal() {
-        return user_idmodal;
+    public profile_modal(String mobilenumber) {
+        this.mobilenumber = mobilenumber;
     }
 
-    public void setUser_idmodal(com.monstertechno.loginsignupui.modal.user_idmodal user_idmodal) {
-        this.user_idmodal = user_idmodal;
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public String getResponsecode() {

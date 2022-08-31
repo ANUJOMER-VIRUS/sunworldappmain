@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -33,7 +34,8 @@ EditText name,email,mobilenumber,Address,city,Occupation;
     FloatingActionButton floatingActionButton;
     private FirebaseAuth mAuth;
     private String verifcationId;
-
+private SharedPreferences sharedPreferences;
+private SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +67,7 @@ EditText name,email,mobilenumber,Address,city,Occupation;
                 } else {
                     profile_modal profile_modal=new profile_modal(name.getText().toString(),email.getText().toString(),mobilenumber.getText().toString(),Address.getText().toString(),city.getText().toString(),Occupation.getText().toString());
                     sendDatatoDb(profile_modal);
-                    String phone = "+91" + mobilenumber.getText().toString();
-                    verifyNumber(phone);
+
                 }
 
             }
@@ -105,16 +106,22 @@ EditText name,email,mobilenumber,Address,city,Occupation;
     }
 
     private void sendDatatoDb(profile_modal profile_modal) {
+        sharedPreferences =this.getSharedPreferences("login",MODE_PRIVATE);
+        editor=sharedPreferences.edit();
 RetrofitAPI retrofitAPI= RetrofitClient.getRetrofit().create(RetrofitAPI.class);
 Call<profile_modal> call=retrofitAPI.createPost(profile_modal);
 call.enqueue(new Callback<com.monstertechno.loginsignupui.modal.profile_modal>() {
     @Override
     public void onResponse(Call<com.monstertechno.loginsignupui.modal.profile_modal> call, Response<com.monstertechno.loginsignupui.modal.profile_modal> response) {
         if(response.body().getStatus()){
-            Toast.makeText(getApplicationContext(),response.body().getUser_idmodal().getUser_id(),Toast.LENGTH_SHORT).show();
-
+            editor.putString("userid",response.body().getUser_id());
+            editor.commit();
+        //Toast.makeText(getApplicationContext(),response.body().getUser_id(),Toast.LENGTH_SHORT).show();
+            String phone = "+91" + mobilenumber.getText().toString();
+            verifyNumber(phone);
         }
         else {
+            gotohome();
             Toast.makeText(getApplicationContext(),response.body().getResponsemessage(),Toast.LENGTH_SHORT).show();
 
         }
@@ -127,5 +134,9 @@ call.enqueue(new Callback<com.monstertechno.loginsignupui.modal.profile_modal>()
     }
 });
 
+    }
+    private void gotohome(){
+        startActivity(new Intent(getApplicationContext(),SiginActivity.class));
+        finish();
     }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/home"
+            android:title="Home"
+            android:icon="@drawable/ic_baseline_home_24"/>
+
+        <item android:id="@+id/redeem"
+            android:title="Redeem"
+            android:icon="@drawable/ic_baseline_redeem_24"/>
+
+        <item android:id="@+id/newbooking"
+            android:title="New Booking"
+            android:icon="@drawable/ic_baseline_add_circle_outline_24"/>
+
+        <item android:id="@+id/booking"
+            android:title="Booking"
+            android:icon="@drawable/ic_baseline_book_24"/>
+
+        <item android:id="@+id/profile"
+            android:title="Profile"
+            android:icon="@drawable/ic_baseline_person_24"/>
+
+        <item android:id="@+id/termsandconditions"
+            android:title="Terms And Conditions"
+            android:icon="@drawable/ic_baseline_library_books_24"/>
+
+        <item android:id="@+id/privacy"
+            android:title="Privacy Policy"
+            android:icon="@drawable/ic_baseline_privacy_tip_24"/>
+
+
+        <item android:id="@+id/chat"
+            android:title="Chat"
+            android:icon="@drawable/ic_baseline_chat_24"/>
+
+        <item android:id="@+id/logout"
+            android:title="Logout"
+            android:icon="@drawable/ic_baseline_login_24"/>
+
+
+    </group>
+
+</menu>
