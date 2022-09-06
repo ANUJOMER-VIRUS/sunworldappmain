@@ -1,66 +1,100 @@
 package com.monstertechno.loginsignupui.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.monstertechno.loginsignupui.Adapter.reddemAdapter;
 import com.monstertechno.loginsignupui.R;
+import com.monstertechno.loginsignupui.Retrofit.RetrofitAPI;
+import com.monstertechno.loginsignupui.Retrofit.RetrofitClient;
+import com.monstertechno.loginsignupui.modal.CoinResponse;
+import com.monstertechno.loginsignupui.modal.CoinResponseData;
+import com.monstertechno.loginsignupui.modal.ReddemResponse;
+import com.monstertechno.loginsignupui.modal.Redeems;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RedeemFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
 public class RedeemFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public RedeemFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RedeemFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RedeemFragment newInstance(String param1, String param2) {
-        RedeemFragment fragment = new RedeemFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+RecyclerView recyclerViewRedeem;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    TextView cointv;
+    String userid;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_redeem, container, false);
+        View view=inflater.inflate(R.layout.fragment_redeem,container,false);
+cointv=view.findViewById(R.id.coinsuser);
+        sharedPreferences =this.getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+        editor=sharedPreferences.edit();
+       userid=sharedPreferences.getString("userid","notfound");
+RetrofitAPI retrofitAPI2=RetrofitClient.getRetrofit().create(RetrofitAPI.class);
+        CoinResponse coinResponse=new CoinResponse(userid);
+Call<CoinResponse> coinResponseCall=retrofitAPI2.getcoin(coinResponse);
+coinResponseCall.enqueue(new Callback<CoinResponse>() {
+    @Override
+    public void onResponse(Call<CoinResponse> call, Response<CoinResponse> response) {
+        if(response.body().getStatus()){
+            String coins=response.body().getResponseData().getCoins().toString();
+            cointv.setText(coins);
+        }
+
+    }
+
+    @Override
+    public void onFailure(Call<CoinResponse> call, Throwable t) {
+
+    }
+});
+
+
+
+
+
+
+
+
+   recyclerViewRedeem=view.findViewById(R.id.recyclerviewredeem);
+        recyclerViewRedeem.setHasFixedSize(true);
+        recyclerViewRedeem.setLayoutManager(new LinearLayoutManager(getContext()));
+        RetrofitAPI retrofitAPI= RetrofitClient.getRetrofit().create(RetrofitAPI.class);
+
+        Call<ReddemResponse> responseCall=retrofitAPI.getRedeemData(new ReddemResponse(userid));
+        responseCall.enqueue(new Callback<ReddemResponse>() {
+            @Override
+            public void onResponse(Call<ReddemResponse> call, Response<ReddemResponse> response) {
+                List<Redeems> list=new ArrayList<>();
+                if(response.body().getStatus()){
+                    list=response.body().getResponseData().getRedeemsList();
+                    recyclerViewRedeem.setAdapter(new reddemAdapter(list,getActivity()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReddemResponse> call, Throwable t) {
+
+            }
+        });
+
+
+        return view;
     }
 }

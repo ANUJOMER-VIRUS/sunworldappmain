@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.redeemProductPage">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp">
+
+        <ImageView
+            android:id="@+id/imagerp"
+            android:layout_width="348dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/img20" />
+    </androidx.cardview.widget.CardView>
+
+
+
+    <TextView
+        android:id="@+id/namerp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardView"
+        android:layout_marginTop="15dp"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="italic" />
+<RelativeLayout
+    android:id="@+id/ll2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_below="@+id/namerp"
+    >
+
+    <TextView
+        android:id="@+id/productCoins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+
+        android:layout_marginTop="15dp"
+
+        android:layout_toStartOf="@+id/coinsyou"
+        android:padding="5dp"
+        android:text=" 100 coins/product"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/coinsyou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="15dp"
+
+        android:layout_marginEnd="2dp"
+
+        android:layout_toStartOf="@+id/UserCoins"
+        android:padding="5dp"
+        android:text="coins you have:-"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/UserCoins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:padding="5dp"
+
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="italic" />
+</RelativeLayout>
+
+    <TextView
+        android:id="@+id/totalcoins"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2"
+        android:layout_marginTop="15dp"
+        android:text="Total:-0 coins"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="italic" />
+<RelativeLayout
+    android:id="@+id/Rl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="25dp"
+    android:layout_below="@+id/totalcoins"
+    >
+<LinearLayout
+    android:id="@+id/ll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_centerInParent="true"
+    >
+
+    <ImageView
+        android:id="@+id/minusrp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+
+        android:layout_marginLeft="20dp"
+        android:layout_toLeftOf="@+id/in_de"
+        android:src="@drawable/minus"
+        tools:ignore="OnClick" />
+
+    <TextView
+        android:id="@+id/in_derp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+android:gravity="center"
+
+        android:layout_toLeftOf="@+id/plus"
+        android:text="0"
+        android:textSize="20sp" />
+    <ImageView
+        android:id="@+id/plusrp"
+
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/add" />
+</LinearLayout>
+
+</RelativeLayout>
+
+
+    <Button
+        android:id="@+id/submitredeem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+     android:layout_below="@id/Rl"
+
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/background_btn"
+        android:fontFamily="@font/mulishblack"
+        android:text="Submit"
+        android:textColor="@color/colorWhiteSmoke"
+        android:textSize="19dp" />
+
+</RelativeLayout>

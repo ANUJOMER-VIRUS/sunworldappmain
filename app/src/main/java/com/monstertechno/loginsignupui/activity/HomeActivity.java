@@ -9,10 +9,10 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
-import com.monstertechno.loginsignupui.Adapter.ImageFragmentAdapter;
+
 import com.monstertechno.loginsignupui.fragment.BookingFragment;
 import com.monstertechno.loginsignupui.fragment.HomeFragment;
-import com.monstertechno.loginsignupui.fragment.NewBookingFragment;
+import com.monstertechno.loginsignupui.fragment.NewBookFragment;
 import com.monstertechno.loginsignupui.fragment.ProfileFragment;
 import com.monstertechno.loginsignupui.R;
 import com.monstertechno.loginsignupui.fragment.RedeemFragment;
@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
 
     MeowBottomNavigation bottomNavigation;
     ViewPager viewPager;
-    ImageFragmentAdapter adapter;
+
 SharedPreferences sharedPreferences;
 SharedPreferences.Editor editor;
     @Override
@@ -31,13 +31,13 @@ SharedPreferences.Editor editor;
 
         sharedPreferences =this.getSharedPreferences("login",MODE_PRIVATE);
         editor=sharedPreferences.edit();
-Toast.makeText(getApplicationContext(), sharedPreferences.getString("userid","not_found"),Toast.LENGTH_SHORT).show();
+//Toast.makeText(getApplicationContext(), sharedPreferences.getString("userid","not_found"),Toast.LENGTH_SHORT).show();
         bottomNavigation = findViewById(R.id.bottom_navigation);
 
         bottomNavigation.add(new MeowBottomNavigation.Model(1,R.drawable.ic_baseline_home_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(2,R.drawable.ic_baseline_attach_money_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(3,R.drawable.ic_baseline_add_circle_outline_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(4,R.drawable.ic_baseline_chat_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(4,R.drawable.ic_baseline_book_online_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(5,R.drawable.ic_baseline_person_24));
 
         bottomNavigation.setOnShowListener(new MeowBottomNavigation.ShowListener() {
@@ -56,7 +56,7 @@ Toast.makeText(getApplicationContext(), sharedPreferences.getString("userid","no
                         break;
 
                     case 3:
-                        fragment = new NewBookingFragment();
+                        fragment = new NewBookFragment();
                         break;
 
                     case 4:
@@ -71,7 +71,7 @@ Toast.makeText(getApplicationContext(), sharedPreferences.getString("userid","no
             }
         });
 
-        bottomNavigation.setCount(4,"10");
+
         bottomNavigation.show(1,true);
 
         bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {

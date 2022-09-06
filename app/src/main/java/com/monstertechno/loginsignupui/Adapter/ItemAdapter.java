@@ -1,6 +1,7 @@
 package com.monstertechno.loginsignupui.Adapter;
 
-import android.content.Context;
+import android.os.Build;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.monstertechno.loginsignupui.R;
-import com.monstertechno.loginsignupui.modal.Model;
+import com.monstertechno.loginsignupui.modal.SubCategory;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -20,11 +21,12 @@ import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
-    List<Model> itemList1;
 
-    public ItemAdapter(List<Model> itemList) {
 
-        this.itemList1=itemList;
+List<SubCategory> categoryArrayList;
+
+    public ItemAdapter(List<SubCategory> categoryArrayList) {
+        this.categoryArrayList = categoryArrayList;
     }
 
     @NonNull
@@ -39,14 +41,23 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder viewHolder, int i) {
 
-        viewHolder.itemImage.setImageResource(itemList1.get(i).getImage());
-        viewHolder.itemtext.setText(itemList1.get(i).getName());
+Picasso.get().load(categoryArrayList.get(i).getImage()).into(viewHolder.itemImage);
+        viewHolder.itemtext.setText(categoryArrayList.get(i).getName());
+        viewHolder.itemtext1.setText(categoryArrayList.get(i).getId());
+        viewHolder.itemtext2.setText(categoryArrayList.get(i).getCoins());
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N) {
+            viewHolder.itemtext3.setText(Html.fromHtml(categoryArrayList.get(i).getDescription(), Html.FROM_HTML_MODE_COMPACT));
+        }
+        else {
+            viewHolder.itemtext3.setText(Html.fromHtml(categoryArrayList.get(i).getDescription()));
+
+        }
 
     }
 
     @Override
     public int getItemCount() {
-        return itemList1.size();
+        return categoryArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

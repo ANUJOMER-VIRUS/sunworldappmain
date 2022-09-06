@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:id="@+id/bookingcv"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+
+    android:background="@color/teal_200">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:id="@+id/llname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+<TextView
+    android:layout_width="wrap_content"
+android:layout_marginLeft="10dp"
+
+    android:textSize="17sp"
+    android:textStyle="bold"
+    android:text="Customer Name:-"
+    android:textColor="@color/black"
+    android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/bookingcust"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="17sp"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:hint="NAME"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/llname"
+            android:id="@+id/llphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:text="Customer Phone:-"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/bookingphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                android:hint="Phone"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lladdress"
+            android:layout_below="@+id/llphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:text="Customer address:-"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/bookingaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:hint="ADDRESS"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="italic" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@+id/lladdress"
+            android:id="@+id/llbooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:text="Booking date:-"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/bookingdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="italic"
+                android:hint="Date"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@+id/llbooking"
+            android:layout_width="match_parent"
+            android:id="@+id/orderid"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:text="Order Id:-"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/bookingorderId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                android:hint="OrderId"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_below="@+id/orderid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true"
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bookingorderstatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:hint="Status"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="italic" />
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

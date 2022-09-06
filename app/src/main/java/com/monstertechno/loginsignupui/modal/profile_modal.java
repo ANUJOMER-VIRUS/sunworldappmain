@@ -13,7 +13,7 @@ public class profile_modal {
     private String address;
     @SerializedName("city")
     private String city;
-    @SerializedName("occupation")
+    @SerializedName("occupation_id")
     private String occupation;
     @SerializedName("status")
     private Boolean status;

@@ -1,40 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfileActivity">
+    tools:context=".activity.UserProfileActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
     <TextView
         android:id="@+id/userprofile"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="User Profile"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
 
     <ImageView
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+
+
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         android:src="@drawable/ic_baseline_keyboard_backspace_24"/>
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilepic"
         android:layout_width="120dp"
-        android:layout_height="110dp"
+
+        android:layout_height="120dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+  android:layout_below="@+id/userprofile"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/ic_baseline_person_24"
         app:civ_border_color="#3175ba"
-        app:civ_border_width="3dp"/>
+        app:civ_border_width="3dp" />
+
+
+
 
 
     <LinearLayout
@@ -45,13 +59,15 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name"
+            android:layout_marginStart="7.5dp"
+            android:layout_marginEnd="7.5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/nameprofile"
                 android:layout_height="60dp"
                 android:background="@color/colorWhiteSmoke"
                 android:inputType="textPersonName"
@@ -62,7 +78,8 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Address"
+            android:layout_marginStart="7.5dp"
+            android:layout_marginEnd="7.5dp"
             android:layout_width="match_parent"
             android:padding="2dp"
             android:layout_height="wrap_content"
@@ -70,6 +87,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/mobileprofile"
                 android:layout_height="60dp"
                 android:background="@color/colorWhiteSmoke"
                 android:inputType="number"
@@ -80,13 +98,15 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/location"
+            android:layout_marginStart="7.5dp"
+            android:layout_marginEnd="7.5dp"
             android:layout_width="match_parent"
             android:padding="2dp"
             android:layout_height="wrap_content"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailprofile"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@color/colorWhiteSmoke"
@@ -98,7 +118,8 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Phone"
+            android:layout_marginStart="7.5dp"
+            android:layout_marginEnd="7.5dp"
             android:layout_width="match_parent"
             android:padding="2dp"
             android:layout_height="wrap_content"
@@ -106,6 +127,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/Addressprofile"
                 android:layout_height="60dp"
                 android:background="@color/colorWhiteSmoke"
                 android:padding="5dp"
@@ -116,13 +138,17 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Email"
+
             android:layout_width="match_parent"
             android:padding="2dp"
+            android:layout_marginStart="7.5dp"
+            android:layout_marginEnd="7.5dp"
+
             android:layout_height="wrap_content"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/LocationProfile"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@color/colorWhiteSmoke"
@@ -132,6 +158,22 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Button
+            android:id="@+id/submitprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_marginTop="20sp"
+            android:textSize="19dp"
+            android:fontFamily="@font/mulishblack"
+            android:textColor="@color/colorWhiteSmoke"
+            android:background="@drawable/background_btn"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="50dp"/>
+
     </LinearLayout>
 
 </RelativeLayout>
+
+</ScrollView>

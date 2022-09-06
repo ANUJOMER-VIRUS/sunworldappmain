@@ -2,10 +2,10 @@ package com.monstertechno.loginsignupui.modal;
 
 public class Model {
 
-    int image;
+    String image;
     String name,quality,number,delivery;
 
-    public Model(int image, String name, String quality, String number, String delivery) {
+    public Model(String image, String name, String quality, String number, String delivery) {
         this.image = image;
         this.name = name;
         this.quality = quality;
@@ -13,11 +13,11 @@ public class Model {
         this.delivery = delivery;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

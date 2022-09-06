@@ -14,248 +14,200 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="100dp"
             android:background="@drawable/background_menu"
             android:elevation="5dp">
 
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:elevation="8dp"
-                android:src="@drawable/img20"
+
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/namep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/profile_image"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="7.5dp"
                 android:fontFamily="@font/poppinsbold"
-                android:text="User"
+
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
 
             <TextView
-                android:id="@+id/textview2"
+                android:id="@+id/city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/name"
+                android:layout_below="@id/namep"
                 android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/poppinssemibold"
-                android:text="Plumber"
+
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="20sp" />
 
-
-            <RelativeLayout
-                android:id="@+id/layout1"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@id/textview2"
-                android:layout_marginLeft="13dp"
-                android:layout_marginRight="13dp"
-                android:background="@drawable/profile_radius"
-                android:backgroundTint="#F5F5F5">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/city">
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@drawable/ic_baseline_person_24" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/city"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/myprofile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/mulishblack"
-                    android:text="Profile"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
+                    <RelativeLayout
+                        android:id="@+id/layout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_below="@id/city"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/profile_radius"
+                        android:backgroundTint="#F5F5F5">
 
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/ic_baseline_person_24" />
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/layout2"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@id/layout1"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="10dp"
-                android:backgroundTint="#F5F5F5"
-                android:background="@drawable/profile_radius">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="13dp"
-                    android:tint="@color/black"
-
-                    android:src="@drawable/ic_baseline_home_24" />
-
-                <TextView
-                    android:id="@+id/Home"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/mulishblack"
-                    android:text="Home"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
+                        <TextView
+                            android:id="@+id/myprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/mulishblack"
+                            android:text="Profile"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="italic" />
 
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/layout3"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@id/layout2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:backgroundTint="#F5F5F5"
-                android:background="@drawable/profile_radius">
+                    </RelativeLayout>
 
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="15dp"
-                    android:tint="@color/black"
-                    android:src="@drawable/ic_baseline_chat_24" />
+                    <RelativeLayout
+                        android:id="@+id/layout4"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_below="@id/layout1"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/profile_radius"
+                        android:backgroundTint="#F5F5F5">
 
-                <TextView
-                    android:id="@+id/mychat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/mulishblack"
-                    android:text="Chat"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/ic_baseline_policy_24" />
 
-            </RelativeLayout>
+                        <TextView
+                            android:id="@+id/myMessage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/mulishblack"
+                            android:text="Privacy Policy"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="italic" />
 
-            <RelativeLayout
-                android:id="@+id/layout4"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@id/layout3"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:backgroundTint="#F5F5F5"
-                android:background="@drawable/profile_radius">
+                    </RelativeLayout>
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@drawable/ic_baseline_policy_24" />
-
-                <TextView
-                    android:id="@+id/myMessage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/mulishblack"
-                    android:text="Privacy Policy"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="italic" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/layout5"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@id/layout4"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:backgroundTint="#F5F5F5"
-                android:background="@drawable/profile_radius">
+                    <RelativeLayout
+                        android:id="@+id/layout5"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_below="@id/layout4"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/profile_radius"
+                        android:backgroundTint="#F5F5F5">
 
 
-                <ImageView
-                    android:tint="@color/black"
-                    android:layout_width="35dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="13dp"
-                    android:src="@drawable/ic_baseline_library_books_24" />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="13dp"
+                            android:src="@drawable/ic_baseline_library_books_24"
+                            android:tint="@color/black" />
 
-                <TextView
-                    android:tint="@color/black"
-                    android:id="@+id/myTermsandConditions"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/mulishblack"
-                    android:text="Terms and Conditions"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="italic" />
+                        <TextView
+                            android:id="@+id/myTermsandConditions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/mulishblack"
+                            android:text="Terms and Conditions"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="italic"
+                            android:tint="@color/black" />
 
-            </RelativeLayout>
+                    </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/layout6"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@id/layout5"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:backgroundTint="#F5F5F5"
-                android:background="@drawable/profile_radius">
+                    <RelativeLayout
+                        android:id="@+id/layout6"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_below="@id/layout5"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/profile_radius"
+                        android:backgroundTint="#F5F5F5">
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@drawable/ic_baseline_exit_to_app_24" />
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/ic_baseline_exit_to_app_24" />
 
-                <TextView
-                    android:id="@+id/logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/mulishblack"
-                    android:text="Logout"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="italic" />
+                        <TextView
+                            android:id="@+id/logout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="60dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/mulishblack"
+                            android:text="Logout"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="italic" />
 
-            </RelativeLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
         </RelativeLayout>
 
 

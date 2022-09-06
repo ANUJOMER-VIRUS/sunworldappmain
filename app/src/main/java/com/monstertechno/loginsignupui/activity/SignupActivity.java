@@ -10,7 +10,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,19 +24,27 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.monstertechno.loginsignupui.R;
 import com.monstertechno.loginsignupui.Retrofit.RetrofitAPI;
 import com.monstertechno.loginsignupui.Retrofit.RetrofitClient;
+import com.monstertechno.loginsignupui.modal.Occupation;
+import com.monstertechno.loginsignupui.modal.Occupationres;
 import com.monstertechno.loginsignupui.modal.profile_modal;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignupActivity extends AppCompatActivity {
-EditText name,email,mobilenumber,Address,city,Occupation;
+public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+EditText name,email,mobilenumber,Address,city;
+
     FloatingActionButton floatingActionButton;
     private FirebaseAuth mAuth;
+    Spinner occupation;
     private String verifcationId;
+    List<String> occupationdata;
+    String Occupationname;
 private SharedPreferences sharedPreferences;
 private SharedPreferences.Editor editor;
     @Override
@@ -49,29 +60,48 @@ private SharedPreferences.Editor editor;
         mobilenumber = findViewById(R.id.mobilesup);
         Address = findViewById(R.id.addresssup);
         city = findViewById(R.id.citysup);
-        Occupation = findViewById(R.id.occupationsup);
 
+        occupation =findViewById(R.id.occupationsup);
+        occupation.setOnItemSelectedListener(this);
         mAuth = FirebaseAuth.getInstance();
 
+        occupationdata=getoccupation();
 
         floatingActionButton = findViewById(R.id.floatingbutton);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+
+
+    }
+
+    private List<String> getoccupation() {
+        RetrofitAPI retrofitAPI= RetrofitClient.getRetrofit().create(RetrofitAPI.class);
+        List<String > occupationlist=new ArrayList<>();
+        List<String> occupationid=new ArrayList<>();
+        Call<Occupationres> occupationresCall=retrofitAPI.getOccupation();
+        occupationresCall.enqueue(new Callback<Occupationres>() {
             @Override
-            public void onClick(View view) {
-                if (TextUtils.isEmpty(mobilenumber.getText().toString()) && TextUtils.isEmpty(name.getText().toString()) && TextUtils.isEmpty(email.getText().toString()) && TextUtils.isEmpty(Address.getText().toString()) && TextUtils.isEmpty(city.getText().toString()) && TextUtils.isEmpty(Occupation.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "enter all field", Toast.LENGTH_SHORT).show();
-
-                } else if (mobilenumber.getText().toString().length() != 10) {
-                    Toast.makeText(getApplicationContext(), "enter 10 digit mobile number", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    profile_modal profile_modal=new profile_modal(name.getText().toString(),email.getText().toString(),mobilenumber.getText().toString(),Address.getText().toString(),city.getText().toString(),Occupation.getText().toString());
-                    sendDatatoDb(profile_modal);
+            public void onResponse(Call<Occupationres> call, Response<Occupationres> response) {
+                List<Occupation> occupationList;
+                if(response.body().getStatus()){
+                    occupationList=response.body().getResponseData().getOccupationList();
+                    for (int i = 0; i < occupationList.size(); i++) {
+                        Occupation occupation1=occupationList.get(i);
+                        occupationlist.add(occupation1.getName());
+occupationid.add(occupation1.getId());
+                    }
+                    ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(),android.R.layout.simple_spinner_item,occupationlist);
+                    adapter.setDropDownViewResource( android.R.layout
+                            .simple_spinner_dropdown_item);
+                    occupation.setAdapter(adapter);
 
                 }
+            }
 
+            @Override
+            public void onFailure(Call<Occupationres> call, Throwable t) {
+                occupationlist.add("fail to get occupation");
             }
         });
+        return occupationid;
     }
 
 
@@ -115,8 +145,9 @@ call.enqueue(new Callback<com.monstertechno.loginsignupui.modal.profile_modal>()
     public void onResponse(Call<com.monstertechno.loginsignupui.modal.profile_modal> call, Response<com.monstertechno.loginsignupui.modal.profile_modal> response) {
         if(response.body().getStatus()){
             editor.putString("userid",response.body().getUser_id());
+            editor.putString("occupation",profile_modal.getOccupation());
             editor.commit();
-        //Toast.makeText(getApplicationContext(),response.body().getUser_id(),Toast.LENGTH_SHORT).show();
+
             String phone = "+91" + mobilenumber.getText().toString();
             verifyNumber(phone);
         }
@@ -138,5 +169,38 @@ call.enqueue(new Callback<com.monstertechno.loginsignupui.modal.profile_modal>()
     private void gotohome(){
         startActivity(new Intent(getApplicationContext(),SiginActivity.class));
         finish();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+Occupationname=occupationdata.get(i);
+submitdata(Occupationname);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+    public  void submitdata(String occupationname){
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (TextUtils.isEmpty(mobilenumber.getText().toString()) && TextUtils.isEmpty(name.getText().toString()) && TextUtils.isEmpty(email.getText().toString()) && TextUtils.isEmpty(Address.getText().toString()) && TextUtils.isEmpty(city.getText().toString())  ){
+                    Toast.makeText(getApplicationContext(), "enter all field", Toast.LENGTH_SHORT).show();
+
+                } else if (mobilenumber.getText().toString().length() != 10) {
+                    Toast.makeText(getApplicationContext(), "enter 10 digit mobile number", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    profile_modal profile_modal=new profile_modal(name.getText().toString(),email.getText().toString(),mobilenumber.getText().toString(),Address.getText().toString(),city.getText().toString(),occupationname);
+
+                  sendDatatoDb(profile_modal);
+
+                }
+
+            }
+        });
     }
 }
