@@ -84,7 +84,7 @@ Toast.makeText(getActivity(),"failed",Toast.LENGTH_SHORT).show();
         sharedPreferences =this.getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
         String userid=sharedPreferences.getString("userid","notfound");
-        Toast.makeText(getActivity(),userid,Toast.LENGTH_SHORT).show();
+
         ResponseRv responseRv=new ResponseRv(userid);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ItemAdapter adapter=new ItemAdapter(list);

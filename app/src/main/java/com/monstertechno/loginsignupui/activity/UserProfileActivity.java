@@ -171,13 +171,6 @@ public class UserProfileActivity extends AppCompatActivity {
                         PickImage();
                     }
                 }
-            //    Intent i = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-              //  i.setType("image/*");
-            //  i.setAction(Intent.ACTION_GET_CONTENT);
-
-                // pass the constant to compare it
-                // with the returned requestCode
-              //  startActivityForResult(Intent.createChooser(i, "Select Picture"), 10);
 
             }
         });

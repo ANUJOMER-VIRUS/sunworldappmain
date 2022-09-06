@@ -411,37 +411,7 @@ else {
 
             }
         });
-/**
-        RetrofitAPI retrofitAPI= RetrofitClient.getRetrofit().create(RetrofitAPI.class);
-        List<String> subcategoryname=new ArrayList<>();
 
-        subcategoryData subcategoryData=new subcategoryData(categeoryidn);
-        Call<subcategoryData> subcategoryDataCall=retrofitAPI.getsubcategory(subcategoryData);
-        subcategoryDataCall.enqueue(new Callback<com.monstertechno.loginsignupui.modal.subcategoryData>() {
-            @Override
-            public void onResponse(Call<com.monstertechno.loginsignupui.modal.subcategoryData> call, Response<com.monstertechno.loginsignupui.modal.subcategoryData> response) {
-                List<subcategorylist> subcategorylists;
-                if(response.body().getStatus()){
-                    subcategorylists=response.body().getResponseDataSubCategory().getSubcategorylists();
-                    for (int i = 0; i < subcategorylists.size(); i++) {
-                        subcategorylist subcategorylist=subcategorylists.get(i);
-String id=subcategorylist.getSubcategory_title()+" id:- "+subcategorylist.getId();
-                        subcategoryname.add(id);
-
-                    }
-                    ArrayAdapter<String> adapter=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_item,subcategoryname);
-                    adapter.setDropDownViewResource( android.R.layout
-                            .simple_spinner_dropdown_item);
-                    subcategory.setAdapter(adapter);
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<com.monstertechno.loginsignupui.modal.subcategoryData> call, Throwable t) {
-
-            }
-        });**/
     }
 
     @Override

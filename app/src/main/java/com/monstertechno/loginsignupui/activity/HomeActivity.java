@@ -77,18 +77,14 @@ SharedPreferences.Editor editor;
         bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
             @Override
             public void onClickItem(MeowBottomNavigation.Model item) {
-                Toast.makeText(getApplicationContext()
-                        ,"You Clicked"+ item.getId()
-                        ,Toast.LENGTH_SHORT).show();
+
             }
         });
 
         bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
             @Override
             public void onReselectItem(MeowBottomNavigation.Model item) {
-                Toast.makeText(getApplicationContext()
-                        ,"You Reslected"+item.getId()
-                        ,Toast.LENGTH_SHORT).show();
+             
             }
         });
 

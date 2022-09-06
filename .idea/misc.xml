@@ -14,10 +14,12 @@
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/activity_newbookingactvity.xml" value="0.264" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/activity_otpactivity.xml" value="0.23322332233223322" />
+        <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/activity_privacy_policy.xml" value="0.56625" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/activity_redeem_product_page.xml" value="0.264" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/activity_sigin.xml" value="0.1" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/activity_signup.xml" value="0.2" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/activity_successfull.xml" value="0.264" />
+        <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/activity_termandcondition.xml" value="0.6" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/activity_user_profile.xml" value="0.264" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/app_bar_main.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/banner_item.xml" value="0.536" />
@@ -34,7 +36,7 @@
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/fragment_new_booking.xml" value="0.2" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/fragment_newbooking.xml" value="0.2" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/fragment_privacy_policy.xml" value="0.10989583333333333" />
-        <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/fragment_profile.xml" value="0.6" />
+        <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/fragment_redeem.xml" value="0.4" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/fragment_rejected.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/anujo/Downloads/sunworld main/Signin-Signup-UI-design-2019-master/app/src/main/res/layout/fragment_termsand_conditions.xml" value="0.10989583333333333" />
