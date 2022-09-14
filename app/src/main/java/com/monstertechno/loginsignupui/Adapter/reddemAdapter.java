@@ -49,6 +49,8 @@ Context context;
                 intent.putExtra("product_id",redeemsList.get(position).getId());
                 intent.putExtra("product_name",redeemsList.get(position).getName());
 intent.putExtra("coin",redeemsList.get(position).getCoin());
+                intent.putExtra("des",redeemsList.get(position).getDes());
+
                 intent.putExtra("product_url",redeemsList.get(position).getImage());
                 context.startActivity(intent);
             }

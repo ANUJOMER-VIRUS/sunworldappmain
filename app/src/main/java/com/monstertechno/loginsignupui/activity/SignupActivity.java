@@ -28,6 +28,7 @@ import com.monstertechno.loginsignupui.modal.Occupation;
 import com.monstertechno.loginsignupui.modal.Occupationres;
 import com.monstertechno.loginsignupui.modal.profile_modal;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -62,6 +63,7 @@ private SharedPreferences.Editor editor;
         city = findViewById(R.id.citysup);
 
         occupation =findViewById(R.id.occupationsup);
+
         occupation.setOnItemSelectedListener(this);
         mAuth = FirebaseAuth.getInstance();
 
@@ -88,7 +90,7 @@ private SharedPreferences.Editor editor;
                         occupationlist.add(occupation1.getName());
 occupationid.add(occupation1.getId());
                     }
-                    ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(),android.R.layout.simple_spinner_item,occupationlist);
+                    ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(),R.layout.spinner_item,occupationlist);
                     adapter.setDropDownViewResource( android.R.layout
                             .simple_spinner_dropdown_item);
                     occupation.setAdapter(adapter);

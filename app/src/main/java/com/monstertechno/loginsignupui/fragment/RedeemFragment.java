@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -71,21 +72,29 @@ coinResponseCall.enqueue(new Callback<CoinResponse>() {
 
 
 
-
+        List<Redeems> list=new ArrayList<>();
    recyclerViewRedeem=view.findViewById(R.id.recyclerviewredeem);
         recyclerViewRedeem.setHasFixedSize(true);
-        recyclerViewRedeem.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerViewRedeem.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        reddemAdapter reddemAdapter=new reddemAdapter(list,getActivity());
+        recyclerViewRedeem.setAdapter(reddemAdapter);
+
         RetrofitAPI retrofitAPI= RetrofitClient.getRetrofit().create(RetrofitAPI.class);
 
         Call<ReddemResponse> responseCall=retrofitAPI.getRedeemData(new ReddemResponse(userid));
         responseCall.enqueue(new Callback<ReddemResponse>() {
             @Override
             public void onResponse(Call<ReddemResponse> call, Response<ReddemResponse> response) {
-                List<Redeems> list=new ArrayList<>();
+
                 if(response.body().getStatus()){
-                    list=response.body().getResponseData().getRedeemsList();
-                    recyclerViewRedeem.setAdapter(new reddemAdapter(list,getActivity()));
+                    if(response.body().getResponseData().getRedeemsList()!=null){
+                    list.addAll(response.body().getResponseData().getRedeemsList());
+                    reddemAdapter.notifyDataSetChanged();}
+
+
                 }
+
+
             }
 
             @Override

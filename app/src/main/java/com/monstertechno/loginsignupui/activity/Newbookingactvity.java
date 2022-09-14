@@ -48,6 +48,7 @@ import com.monstertechno.loginsignupui.Adapter.subcategorySpinnerAdapter;
 import com.monstertechno.loginsignupui.R;
 import com.monstertechno.loginsignupui.Retrofit.RetrofitAPI;
 import com.monstertechno.loginsignupui.Retrofit.RetrofitClient;
+import com.monstertechno.loginsignupui.fragment.BookingFragment;
 import com.monstertechno.loginsignupui.modal.NewBookingRes;
 import com.monstertechno.loginsignupui.modal.RealPathUtil;
 import com.monstertechno.loginsignupui.modal.category;
@@ -202,7 +203,7 @@ else {
         String locationi = getLocati();
         File selffile = selectedImageUri2, productfile = selectedImageUri1;
         Toast.makeText(Newbookingactvity.this, locationi, Toast.LENGTH_SHORT).show();
-
+         Submit.setVisibility(View.INVISIBLE);
         if (cati < 0 && subcati < 0) {
             Toast.makeText(getApplicationContext(), "Select category and subcategory", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(namei) && TextUtils.isEmpty(phonei) && TextUtils.isEmpty(Addressi) && TextUtils.isEmpty(locationi)) {
@@ -228,16 +229,22 @@ else {
                 public void onResponse(Call<NewBookingRes> call, Response<NewBookingRes> response) {
                     if (response.body().getStatus()) {
                         Toast.makeText(getApplicationContext(), "uploaded", Toast.LENGTH_SHORT).show();
+
                         finish();
                     } else {
-                        Toast.makeText(getApplicationContext(), "not Added", Toast.LENGTH_SHORT).show();
+
+                        Toast.makeText(getApplicationContext(), response.body().getResponseMessage(), Toast.LENGTH_SHORT).show();
+
                     }
 
                 }
 
                 @Override
                 public void onFailure(Call<NewBookingRes> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                    Log.i( "onResponse: ",t.toString());
+
+                    finish();
                 }
             });
         }

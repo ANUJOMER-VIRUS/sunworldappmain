@@ -78,7 +78,7 @@ android:layout_marginLeft="10dp"
 
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:text="Customer address:-"
+                android:text="Customer Address:-"
                 android:textColor="@color/black"
                 android:layout_height="wrap_content"/>
 
@@ -105,7 +105,7 @@ android:layout_marginLeft="10dp"
 
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:text="Booking date:-"
+                android:text="Booking Date:-"
                 android:textColor="@color/black"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -118,34 +118,74 @@ android:layout_marginLeft="10dp"
                 android:textStyle="italic"
                 android:hint="Date"/>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_below="@+id/llbooking"
-            android:layout_width="match_parent"
             android:id="@+id/orderid"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/llbooking"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
 
-                android:textSize="17sp"
-                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
                 android:text="Order Id:-"
                 android:textColor="@color/black"
-                android:layout_height="wrap_content"/>
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/bookingorderId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:textSize="17sp"
+                android:hint=""
                 android:textColor="@color/black"
-                android:textStyle="italic"
-                android:hint="OrderId"/>
+                android:textSize="17sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/coinsbook"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/orderid"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="10dp"
+                android:text="Coins:-"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/coinsboking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:hint="coins"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="italic" />
+            <ImageView
+                android:layout_width="17sp"
+                android:layout_gravity="center"
+                android:layout_height="17sp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/coins"/>
         </LinearLayout>
         <RelativeLayout
-            android:layout_below="@+id/orderid"
+            android:layout_below="@+id/coinsbook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

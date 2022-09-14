@@ -32,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SiginActivity extends AppCompatActivity {
-
+    private FirebaseAuth mAuth;
     FloatingActionButton floatingActionButton;
     EditText mobile;
  private SharedPreferences sharedPreferences;
@@ -43,7 +43,7 @@ private SharedPreferences.Editor editor;
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
-
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_sigin);
         sharedPreferences =this.getSharedPreferences("login",MODE_PRIVATE);
 editor=sharedPreferences.edit();
@@ -61,6 +61,9 @@ if(sharedPreferences.getString("islogin","false").equals("yes")){
                                                     @Override
                                                     public void onClick(View view) {
 String mob=mobile.getText().toString();
+if(mob.isEmpty()){
+    Toast.makeText(SiginActivity.this, "enter number", Toast.LENGTH_SHORT).show();
+}
 dologin(mob);
 
                                                     }
@@ -86,12 +89,17 @@ dologin(mob);
                 }
                 else {
                     if(response.body().isStatus()){
-                     //   Toast.makeText(getApplicationContext(),response.body().getUserid(),Toast.LENGTH_SHORT).show();
+                      // Toast.makeText(getApplicationContext(),response.body().getUserid(),Toast.LENGTH_SHORT).show();
                         editor.putString("islogin","yes");
                         editor.putString("userid",response.body().getUserid());
                         editor.commit();
-                       openHome();
+                        String phone="+91"+mob;
+                        verifyNumber(phone);
 
+
+                    }
+                    else {
+                        Toast.makeText(SiginActivity.this, "login failed", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -109,6 +117,35 @@ dologin(mob);
 
 startActivity(new Intent(getApplicationContext(),HomeActivity.class));
 finish();
+    }
+    private void verifyNumber(String phone) {
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                phone,
+                60,
+                TimeUnit.SECONDS,
+                SiginActivity.this,
+                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                    @Override
+                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                        Toast.makeText(getApplicationContext(),"verification of mobile done",Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                        Toast.makeText(getApplicationContext(),"verification of mobile failed",Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                        Intent intent = new Intent(SiginActivity.this, OTPActivity.class);
+                        intent.putExtra("mobile",  phone);
+                        intent.putExtra("verificationOtp",s);
+                        Toast.makeText(SiginActivity.this, "otp send", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+                    }
+                }
+        );
     }
 }
 

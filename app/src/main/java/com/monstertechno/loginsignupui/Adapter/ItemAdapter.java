@@ -43,8 +43,8 @@ List<SubCategory> categoryArrayList;
 
 Picasso.get().load(categoryArrayList.get(i).getImage()).into(viewHolder.itemImage);
         viewHolder.itemtext.setText(categoryArrayList.get(i).getName());
-        viewHolder.itemtext1.setText(categoryArrayList.get(i).getId());
-        viewHolder.itemtext2.setText(categoryArrayList.get(i).getCoins());
+
+        viewHolder.itemtext2.setText(categoryArrayList.get(i).getCoins()+" ");
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N) {
             viewHolder.itemtext3.setText(Html.fromHtml(categoryArrayList.get(i).getDescription(), Html.FROM_HTML_MODE_COMPACT));
         }
@@ -70,7 +70,7 @@ Picasso.get().load(categoryArrayList.get(i).getImage()).into(viewHolder.itemImag
 
             itemImage=itemView.findViewById(R.id.itemImag);
             itemtext=itemView.findViewById(R.id.productname);
-            itemtext1=itemView.findViewById(R.id.itemqty);
+
             itemtext2=itemView.findViewById(R.id.itemnumber);
             itemtext3=itemView.findViewById(R.id.deleivery);
         }

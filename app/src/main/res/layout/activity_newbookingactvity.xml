@@ -30,21 +30,46 @@ android:backgroundTint="@color/white"
                     android:layout_gravity="center"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
                     android:fontFamily="@font/mulishblack"
                     android:text="New Booking"
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Category"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+
+                    android:textSize="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
                 <Spinner
                     android:id="@+id/categotyspinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:layout_marginLeft="20sp"
-                    android:layout_marginRight="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:padding="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Subcategory"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
 
+                    android:textSize="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
 
                 <Spinner
                     android:id="@+id/subcategorySpinner"
@@ -68,20 +93,21 @@ android:backgroundTint="@color/white"
 
 
                 <com.google.android.material.textfield.TextInputLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20sp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="20sp"
+                    android:hint="Enter Name"
+                    app:hintTextColor="#536DFE"
                     app:errorEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
+                    android:background="@color/white"
                         android:id="@+id/namenb"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:background="@color/colorWhiteSmoke"
-                        android:hint="Name"
+                        android:textCursorDrawable="@drawable/black_cursor"
                         android:inputType="textPersonName"
                         android:padding="15dp"
                         android:textStyle="italic" />
@@ -91,19 +117,20 @@ android:backgroundTint="@color/white"
 
 
             <com.google.android.material.textfield.TextInputLayout
-
+                android:hint="phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20sp"
                     android:layout_marginRight="20sp"
+                app:hintTextColor="#536DFE"
                     app:errorEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/phonenb"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:background="@color/colorWhiteSmoke"
-                        android:hint="phone"
+android:background="@color/white"
+                        android:textCursorDrawable="@drawable/black_cursor"
                         android:inputType="number"
                         android:padding="15dp"
                         android:textStyle="italic" />
@@ -114,7 +141,7 @@ android:backgroundTint="@color/white"
 
                 <com.google.android.material.textfield.TextInputLayout
 
-
+                    app:hintTextColor="#536DFE"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20sp"
@@ -125,7 +152,9 @@ android:backgroundTint="@color/white"
                         android:id="@+id/addressnb"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:background="@color/colorWhiteSmoke"
+android:background="@color/white"
+                        android:cursorVisible="true"
+                        android:textCursorDrawable="@drawable/black_cursor"
                         android:hint="Address"
                         android:inputType="textPostalAddress"
                         android:padding="15dp"
