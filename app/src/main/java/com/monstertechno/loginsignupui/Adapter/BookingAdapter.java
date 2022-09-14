@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,14 +43,19 @@ holder.nametv.setText(nameList.get(position).getCustomerName());
         holder.status.setText(nameList.get(position).getStatus());
 if(nameList.get(holder.getAdapterPosition()).getStatus().equals("Rejected")){
     holder.status.setTextColor(Color.RED);
+    holder.coins.setVisibility(View.GONE);
 }
 else if(nameList.get(holder.getAdapterPosition()).getStatus().equals("In Progress")){
     holder.status.setTextColor(Color.BLUE);
+    holder.coins.setVisibility(View.GONE);
 }else if(nameList.get(holder.getAdapterPosition()).getStatus().equals("Approved ")){
     holder.status.setTextColor(Color.parseColor("#1bde0d"));
+    holder.coins.setVisibility(View.VISIBLE);
+    holder.coinget.setText("500");
 }
 else {
     holder.status.setTextColor(Color.BLACK);
+    holder.coins.setVisibility(View.GONE);
 }
     }
 
@@ -59,7 +65,8 @@ else {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-      TextView nametv,phone,address,booking,orderid,status;
+      TextView nametv,phone,address,booking,orderid,coinget,status;
+      LinearLayout coins;
       CardView cardView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +76,8 @@ else {
             booking=itemView.findViewById(R.id.bookingdate);
             orderid=itemView.findViewById(R.id.bookingorderId);
             status=itemView.findViewById(R.id.bookingorderstatus);
+            coins=itemView.findViewById(R.id.coinsbook);
+            coinget=itemView.findViewById(R.id.coinsboking);
 cardView=itemView.findViewById(R.id.bookingcv);
 
 

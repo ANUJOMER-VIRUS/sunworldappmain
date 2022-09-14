@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -32,20 +34,28 @@ int count=0;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 ImageView plus,minus;
-TextView productc,userc,needc;
+TextView productc,needc,description;
 String user_coins;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_redeem_product_page);
         Intent intent=getIntent();
+        String product_des=intent.getStringExtra("des");
         String product_id=intent.getStringExtra("product_id");
         String product_name=intent.getStringExtra("product_name");
         String product_url=intent.getStringExtra("product_url");
         product_coin=intent.getStringExtra("coin");
         productc=findViewById(R.id.productCoins);
-        productc.setText(product_coin+" coins/product");
-        userc=findViewById(R.id.UserCoins);
+        productc.setText(product_coin+" ");
+         description=findViewById(R.id.description);
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N) {
+       description.setText(Html.fromHtml(product_des, Html.FROM_HTML_MODE_COMPACT));
+        }
+        else {
+            description.setText(Html.fromHtml(product_des));
+
+        }
 
         sharedPreferences =this.getSharedPreferences("login", Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
@@ -63,7 +73,7 @@ String user_coins;
                 if(response.body().getStatus()){
                     user_coins=response.body().getResponseData().getCoins().toString();
 
- userc.setText(user_coins);
+ 
 
                 }
 
@@ -91,9 +101,9 @@ minus=findViewById(R.id.minusrp);
 
 
         String currentvalue = value.getText().toString();
-if(Integer.valueOf(userc.getText().toString()) - Integer.valueOf(product_coin)*Integer.valueOf(value.getText().toString())>Integer.valueOf(product_coin)) {
+if(Integer.valueOf(user_coins) - Integer.valueOf(product_coin)*Integer.valueOf(value.getText().toString())>Integer.valueOf(product_coin)) {
 
-    feasiblity = Integer.valueOf(userc.getText().toString()) - Integer.valueOf(product_coin) * Integer.valueOf(value.getText().toString());
+    feasiblity = Integer.valueOf(user_coins) - Integer.valueOf(product_coin) * Integer.valueOf(value.getText().toString());
 }
 
         int value1 = Integer.parseInt(currentvalue);
@@ -104,7 +114,7 @@ if(Integer.valueOf(userc.getText().toString()) - Integer.valueOf(product_coin)*I
 
             value1++;
             int totalvalue = Integer.parseInt(product_coin) * value1;
-            needc.setText("Total:- " + (totalvalue) + " coins");
+            needc.setText("" + (totalvalue)+" ");
             value.setText(String.valueOf(value1));
         }
     }
@@ -121,7 +131,7 @@ minus.setOnClickListener((new View.OnClickListener() {
             value1--;
         }
         int totalvalue=Integer.parseInt(product_coin)*value1;
-        needc.setText("Total:- "+(totalvalue)+" coins");
+        needc.setText(""+(totalvalue)+" ");
         value.setText(String.valueOf(value1));
     }
 }));

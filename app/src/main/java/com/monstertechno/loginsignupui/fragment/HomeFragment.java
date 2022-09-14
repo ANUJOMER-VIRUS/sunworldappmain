@@ -114,7 +114,6 @@ adapter.notifyDataSetChanged();
             });
 
 
-
             sliderView2=view.findViewById(R.id.imageBannerbottom);
         sliderView2.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR);
         sliderView2.setScrollTimeInSec(10);

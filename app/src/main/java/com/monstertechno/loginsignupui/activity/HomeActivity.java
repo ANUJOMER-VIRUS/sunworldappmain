@@ -6,7 +6,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
@@ -40,36 +39,37 @@ SharedPreferences.Editor editor;
         bottomNavigation.add(new MeowBottomNavigation.Model(4,R.drawable.ic_baseline_book_online_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(5,R.drawable.ic_baseline_person_24));
 
-        bottomNavigation.setOnShowListener(new MeowBottomNavigation.ShowListener() {
-            @Override
-            public void onShowItem(MeowBottomNavigation.Model item) {
 
-                Fragment fragment = null;
+            bottomNavigation.setOnShowListener(new MeowBottomNavigation.ShowListener() {
+                @Override
+                public void onShowItem(MeowBottomNavigation.Model item) {
 
-                switch (item.getId()){
-                    case 1:
-                        fragment = new HomeFragment();
-                        break;
+                    Fragment fragment = null;
 
-                    case 2:
-                        fragment = new RedeemFragment();
-                        break;
+                    switch (item.getId()) {
+                        case 1:
+                            fragment = new HomeFragment();
+                            break;
 
-                    case 3:
-                        fragment = new NewBookFragment();
-                        break;
+                        case 2:
+                            fragment = new RedeemFragment();
+                            break;
 
-                    case 4:
-                        fragment = new BookingFragment();
-                        break;
+                        case 3:
+                            fragment = new NewBookFragment();
+                            break;
 
-                    case 5:
-                        fragment = new ProfileFragment();
-                        break;
+                        case 4:
+                            fragment = new BookingFragment();
+                            break;
+
+                        case 5:
+                            fragment = new ProfileFragment();
+                            break;
+                    }
+                    loadFragment(fragment);
                 }
-                loadFragment(fragment);
-            }
-        });
+            });
 
 
         bottomNavigation.show(1,true);

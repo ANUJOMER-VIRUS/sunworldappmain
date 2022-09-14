@@ -126,6 +126,7 @@ public class UserProfileActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"please enter all field",Toast.LENGTH_SHORT).show();
                 }else {
                     UserUpdate userUpdate = new UserUpdate(userId, name.getText().toString(), address.getText().toString(), city.getText().toString(), email.getText().toString());
+
                     RetrofitAPI retrofitAPI = RetrofitClient.getRetrofit().create(RetrofitAPI.class);
                     Call<UserUpdate> userUpdateCall = retrofitAPI.postuserupdate(userUpdate);
                     userUpdateCall.enqueue(new Callback<UserUpdate>() {
