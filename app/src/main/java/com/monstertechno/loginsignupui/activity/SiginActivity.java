@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.FirebaseAuth;
+
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.monstertechno.loginsignupui.R;
@@ -32,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SiginActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+  //  private FirebaseAuth mAuth;
     FloatingActionButton floatingActionButton;
     EditText mobile;
  private SharedPreferences sharedPreferences;
@@ -43,7 +43,7 @@ private SharedPreferences.Editor editor;
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
-        mAuth = FirebaseAuth.getInstance();
+    //    mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_sigin);
         sharedPreferences =this.getSharedPreferences("login",MODE_PRIVATE);
 editor=sharedPreferences.edit();
@@ -90,7 +90,7 @@ dologin(mob);
                 else {
                     if(response.body().isStatus()){
                       // Toast.makeText(getApplicationContext(),response.body().getUserid(),Toast.LENGTH_SHORT).show();
-                        editor.putString("islogin","yes");
+
                         editor.putString("userid",response.body().getUserid());
                         editor.commit();
                         String phone="+91"+mob;
@@ -143,6 +143,7 @@ finish();
                         intent.putExtra("verificationOtp",s);
                         Toast.makeText(SiginActivity.this, "otp send", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
+                        finish();
                     }
                 }
         );

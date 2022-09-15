@@ -1,33 +1,70 @@
 {
   "project_info": {
-    "project_number": "709536214812",
-    "project_id": "sunworld-app",
-    "storage_bucket": "sunworld-app.appspot.com"
+    "project_number": "508786273409",
+    "project_id": "sun-world-water-tank",
+    "storage_bucket": "sun-world-water-tank.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:709536214812:android:1710259a54baf9f55754d9",
+        "mobilesdk_app_id": "1:508786273409:android:43bbf0e7090d519474f180",
         "android_client_info": {
-          "package_name": "com.monstertechno.loginsignupui"
+          "package_name": "com.monstertechno.loginsignup"
         }
       },
       "oauth_client": [
         {
-          "client_id": "709536214812-2ubgggtohegf50qrhjloke2us7pefnq8.apps.googleusercontent.com",
+          "client_id": "508786273409-htd2071093us4ev5vnpjsr8uu90j2fm7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.monstertechno.loginsignup",
+            "certificate_hash": "14596a9c062aac529f9ad9d17a7a6fca8864c2ff"
+          }
+        },
+        {
+          "client_id": "508786273409-cvfle1uss660nu6ualuvp4dcbctr4dev.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDvVNIt9D1Wthwz8f4LyjAaswqLxnVIWLU"
+          "current_key": "AIzaSyBRhxtXwSEX4nlkpz_RwQizzH0KEQYI1Cs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "709536214812-2ubgggtohegf50qrhjloke2us7pefnq8.apps.googleusercontent.com",
+              "client_id": "508786273409-cvfle1uss660nu6ualuvp4dcbctr4dev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508786273409:android:cc59906492c7484b74f180",
+        "android_client_info": {
+          "package_name": "com.monstertechno.loginsignupu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508786273409-cvfle1uss660nu6ualuvp4dcbctr4dev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRhxtXwSEX4nlkpz_RwQizzH0KEQYI1Cs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508786273409-cvfle1uss660nu6ualuvp4dcbctr4dev.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

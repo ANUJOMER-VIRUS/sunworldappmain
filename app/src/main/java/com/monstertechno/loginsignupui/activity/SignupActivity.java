@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.FirebaseException;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -41,7 +42,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
 EditText name,email,mobilenumber,Address,city;
 
     FloatingActionButton floatingActionButton;
-    private FirebaseAuth mAuth;
+   private FirebaseAuth mAuth;
     Spinner occupation;
     private String verifcationId;
     List<String> occupationdata;
@@ -108,7 +109,7 @@ occupationid.add(occupation1.getId());
 
 
     private void verifyNumber(String phone) {
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+       PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 phone,
                 60,
                 TimeUnit.SECONDS,
