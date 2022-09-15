@@ -105,7 +105,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
                     email.setText(userProfile.getEmail());
                     address.setText(userProfile.getAddress());
-                    city.setText(userProfile.getCity());
+                    city.setText(userProfile.getLocation());
                     Picasso.get().load(userProfile.getImage()).into(profilepic);
 
                  //   Toast.makeText(getApplicationContext(), userProfile.getPhone(), Toast.LENGTH_SHORT).show();

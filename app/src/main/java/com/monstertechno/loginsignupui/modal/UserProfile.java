@@ -19,6 +19,18 @@ public class UserProfile {
     @SerializedName("address")
     @Expose
     private String address;
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    @SerializedName("location")
+    @Expose
+    private String location;
     @SerializedName("city")
     @Expose
     private String city;

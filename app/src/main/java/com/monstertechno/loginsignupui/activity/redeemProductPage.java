@@ -101,7 +101,7 @@ minus=findViewById(R.id.minusrp);
 
 
         String currentvalue = value.getText().toString();
-if(Integer.valueOf(user_coins) - Integer.valueOf(product_coin)*Integer.valueOf(value.getText().toString())>Integer.valueOf(product_coin)) {
+if(Integer.valueOf(user_coins) - Integer.valueOf(product_coin)*Integer.valueOf(value.getText().toString())>=Integer.valueOf(product_coin)) {
 
     feasiblity = Integer.valueOf(user_coins) - Integer.valueOf(product_coin) * Integer.valueOf(value.getText().toString());
 }
