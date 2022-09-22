@@ -54,7 +54,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.monstertechno.loginsignupui"
+            android:authorities="com.monstertechno.loginsignup"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

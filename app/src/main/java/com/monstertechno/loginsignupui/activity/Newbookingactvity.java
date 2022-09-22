@@ -323,7 +323,7 @@ else {
         try {
             File shelfimage=File.createTempFile(filename,".jpg",storagedirectory);
             selectedImageUri1=shelfimage;
-            Uri imageuri= FileProvider.getUriForFile(Newbookingactvity.this,"com.monstertechno.loginsignupui",
+            Uri imageuri= FileProvider.getUriForFile(Newbookingactvity.this,"com.monstertechno.loginsignup",
                     shelfimage   );
             Intent intent =new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             intent.putExtra(MediaStore.EXTRA_OUTPUT,imageuri);
@@ -362,7 +362,7 @@ else {
         try {
             File shelfimage=File.createTempFile(filename,".jpg",storagedirectory);
             selectedImageUri2=shelfimage;
-            Uri imageuri= FileProvider.getUriForFile(Newbookingactvity.this,"com.monstertechno.loginsignupui",
+            Uri imageuri= FileProvider.getUriForFile(Newbookingactvity.this,"com.monstertechno.loginsignup",
                     shelfimage   );
             Intent intent =new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             intent.putExtra(MediaStore.EXTRA_OUTPUT,imageuri);

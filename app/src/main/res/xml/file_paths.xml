@@ -2,5 +2,5 @@
 <paths>
     <external-path
         name="my_images"
-        path="Android/data/com.monstertechno.loginsignupui"/>
+        path="Android/data/com.monstertechno.loginsignup"/>
 </paths>
